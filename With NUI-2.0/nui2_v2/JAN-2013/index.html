@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>	
+		<style>
+			.nav{float:left;padding:4px 10px;border:1px solid #ccc;font:bold 12px arial;cursor:pointer}
+			.yr{width:60px;text-align:center;cursor:default}
+			 ul,li,body,table{font:normal 12px arial;padding:0;margin:0;list-style:none}
+			.calen{border:1px solid #ccc}
+			 h2{font-size:14px}
+			.calen{clear:both; border:1px solid #ccc}
+			.calen tr{margin:1px}
+			.calen td{padding:7px;text-align:center}
+			.calen th{padding:7px;text-align:center;color:#fff; background:blue;}
+			.calen2{clear:both;border:1px solid #ccc}	
+			.calen2 td{padding:7px;text-align:center;}
+			.calen2 th{padding:7px;text-align:center;color:#fff; background:red}
+			.navigate{display:block}
+			.navigate li{list-style:none;display:inline-block;padding:3px 5px} 
+			.navigate li a{color:#666; font-weight:bold;text-decoration:none;cursor:pointer}
+			.navigate li.bold{font:bold 13px arial;width:90px}
+			.days{clear:both;display:block}
+			.disable{color:#ccc;cursor:default}
+			.currDate{background:blue;color:#fff}
+			.blank{background:#fff}
+			.blank{background:#fff}
+			.act{color:#000;cursor:pointer}
+			.days li{list-style:none;display:inline-block;;padding:5px 10px;background:blue;color:#fff;}
+			.calenR{background:#fff;width:200px}
+			.calenA{border:1px solid #ccc;position:absolute;background:#fff;z-index:1000}
+			.cls{clear:both}
+		</style>
+        <link rel="stylesheet" type="text/css" href="../css/commonValidation.css" />
+		<script type="text/ecmascript" src="../js/naukri_framework_v1.1-min.js"></script>
+		<script type="text/ecmascript" src="calenMin.js"></script>
+        <script type="text/javascript" src="../js/commonValidation_v28.js"></script>
+        <script type="text/javascript" src="../js/commonErrorList.js"></script>
+        <script type="text/javascript">
+		$n(document).ready(function(){
+			commonValidator.validate({
+				formNames : 'cForm',
+				defaultEvents : ['blur','keyup','change']
+			});
+		})
+        </script>
+	</head>
+	<body>
+<div style="width:970px; border:1px solid #ccc;margin:0 auto;height:500px;PADDING:10PX">
+		
+
+	
+	<h2>Calender</h2>
+    <form name="cForm" method="get" action="http://www.naukri.com">
+	<input type="text"  id="show" rel="required:1001,specialChar:1007" />
+    <i id="show_err" class="erLbl"></i><br />
+	<input type="text"  id="show1" />
+	<input type="text"  id="show2" /></BR></BR>
+	<a href="javascript:void(0);" onClick="objCalen.show(event);" id="t1" style="margin-left:00px;display:inline-block" rel="calenCont1">Kalender (Next 90 days active from the current Date)</a>
+	<a href="javascript:void(0);" onClick="objCalen1.show(event);" id="t2" style="margin-left:50px;display:inline-block" rel="calenCont2" >Kalender (last days active from the current Date)</a>
+	
+	<a href="javascript:void(0);" onClick="objCalen2.show(event);" id="t3" style="margin-left:50px;display:inline-block"  rel="calenCont3">Kalender(Normal)</a>
+	
+		
+		
+	
+		
+		
+		
+<!--- calendar container starts-->
+
+	
+<!--- calendar container starts-->
+
+		<script>
+			var objCalen = new calender({currEl:'t1',tabClass:'calen2',contId:'calenCont1',tabId : 'tab1',activeF:true,activeB:false,totalDays:90,format:'mdy',showDate:'show',sep:'/',parentCont:'parentCont',dateDisplay:'display',calenCont:'calenCont'});
+			var objCalen1 = new calender({currEl:'t2',tabClass:'calen',contId:'calenCont2',tabId : 'tab2',activeF:false,activeB:true,totalDays:90,format:'ymd',showDate:'show1',sep:'/',parentCont:'parentCont',dateDisplay:'display',calenCont:'calenCont'});
+			var objCalen2 = new calender({currEl:'t3',tabClass:'calen2',contId:'calenCont3',tabId : 'tab3',currEle:this,activeF:false,activeB:false,totalDays:90,format:'ymd',showDate:'show2',sep:'/',parentCont:'parentCont',dateDisplay:'display',calenCont:'calenCont'});
+			
+		</script>
+        <input type="submit" value="Submit" />
+        </form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Rich Text Editor - NUI</title>
+<link href="css/editor.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../js/naukri_framework_v1.1-min.js"></script>
+<script type="text/javascript" src="js/lightBox_min_v1.2.js"></script>
+<script type="text/javascript" src="js/editor4.js"></script>
+<script type="text/javascript" src="../js/commonErrorList.js"></script>
+<script type="text/javascript" src="../js/commonValidation_v28.js"></script>
+<script>
+$n(document).ready(function(){
+//Editor
+	$editor=new editorWindow();
+	$editor.createEditor("css/editor.css", "", "mailBody", "$editor", "referMail", "sub", "nxt");
+	
+	
+	
+	commonValidator.validate({
+		formNames : 'referMail',
+		defaultEvents : ['blur','keyup']
+	});
+});
+</script>
+    
+</head>
+
+<body>
+<form name="referMail" id="referMail" action="editor.html" onsubmit="return false" method="get">
+<label for="sub">Subject:</label><br />
+<input type="text" size="60" minL="5" maxL="10" id="sub" rel="required:1001,charRange:1008" /><br /><br />
+<i class="erLbl" id="sub_err">Err</i>
+<label for="mailBody">Message:</label><br />
+<div><textarea name="myTextArea" id="mailBody" cols="" rows="" style="height:80px; width:573px;" editor="$editor" rel="custom:3001"></textarea></div>
+<i class="erLbl" id="mailBody_err">Err</i>
+<br /><br /><input type="submit" value="This button has next focus id" id="nxt" class="blueBtn" name="" />
+<input type="submit" value="sbt" />
+</form>
+
+
+<!-- Paste Paste -->
+<div id="pCont" style="display:none" class="lightboxCont">
+    <div class="lbHd">
+    	<a id="closeBtn4" href="javascript:void(0);" class="closeLB"></a>
+        <strong class="f18">Paste as plain text</strong>
+    </div>
+    <div class="sp5"></div>
+    <form name="pasteForm" action="">
+    	<div class="plr15">
+            <div class="formRow">
+                <p>
+					<textarea id="editortxtArea" class="w578_70" rows="1" cols="1"></textarea>
+                </p>
+            </div>
+            <div class="sp20"></div>
+            <input type="button" value="Save" id="editorButton" class="blueBtn" name="" />
+            <a href="javascript:void(0)" onclick="hideLayer()" class="ml10">Cancel</a>
+        </div>
+    </form>   
+    <a href="javascript:void(0);" id="lastAnchor5" onfocus="$n('#closeBtn4').setFocus()">&nbsp;</a>    
+</div>
+<!-- Paste Paste -->
+
+</body>
+</html>
